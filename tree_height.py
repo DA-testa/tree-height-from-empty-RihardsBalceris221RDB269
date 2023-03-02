@@ -7,7 +7,6 @@ import numpy
 
 def compute_height(n, parents):
     nodes = [[] for i in range(n)]
-    root = -1
     for i in range(n):
         if parents[i] == -1:
             root = i
@@ -15,7 +14,7 @@ def compute_height(n, parents):
             nodes[parents[i]].append(i)
     max_height = 0
     def depth(node):
-        if node >= n or not nodes[node]:
+        if not nodes[node]:
             return 1
         else:
             height = [depth(child) for child in nodes[node]]
@@ -27,20 +26,19 @@ def compute_height(n, parents):
 
 def main():
     n = 0
-    parents = []
     in_method = input().strip()
     if in_method == "I":
         n = int(input().strip())
         parents = list(map(int, input().strip().split()))
     elif in_method == "F":
         file_name = input().strip()
-        if os.path.isfile(file_name):
-            in_file = open(file_name, 'r')
-            n = int(in_file.readline().strip())
-            parents = list(map(int, in_file.readline().strip().split()))
-    
+        in_file = open(file_name, 'r')
+        n = int(in_file.readline().strip())
+        parents = list(map(int, in_file.readline().strip().split()))
+
     
     print(compute_height(n, parents))
+
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
