@@ -7,6 +7,7 @@ import numpy
 
 def compute_height(n, parents):
     nodes = [[] for i in range(n)]
+    root = -1
     for i in range(n):
         if parents[i] == -1:
             root = i
