@@ -15,7 +15,7 @@ def compute_height(n, parents):
             nodes[parents[i]].append(i)
     max_height = 0
     def depth(node):
-        if not nodes[node]:
+        if node >= n or not nodes[node]:
             return 1
         else:
             height = [depth(child) for child in nodes[node]]
