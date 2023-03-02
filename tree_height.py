@@ -26,6 +26,7 @@ def compute_height(n, parents):
 
 def main():
     n = 0
+    parents = []
     in_method = input().strip()
     if in_method == "I":
         n = int(input().strip())
