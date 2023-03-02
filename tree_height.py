@@ -25,14 +25,16 @@ def compute_height(n, parents):
 
 
 def main():
-    u_input = input().strip()
-    if os.path.isfile(u_input):
-        input_file = open(u_input, 'r')
-        n = int(input_file.readline().strip())
-        parents = list(map(int, input_file.readline().strip().split()))
-    else:
-        n = int(u_input)
-        parents = list(map(int, input().split()))
+    method = input().strip()
+    if method == "I":
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
+    elif method == "F":
+        file_name = input().strip()
+        if os.path.isfile(file_name):
+            in_file = open(file_name, 'r')
+            n = int(in_file.readline().strip())
+            parents = list(map(int, in_file.readline().strip().split()))
     
     print(compute_height(n, parents))
 
