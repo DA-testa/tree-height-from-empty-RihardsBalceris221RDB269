@@ -32,7 +32,7 @@ def main():
     elif method == "F":
         file_name = input().strip()
         if os.path.isfile(file_name):
-            in_file = open(file_name, 'r')
+            in_file = open("./test/" + file_name, 'r')
             n = int(in_file.readline().strip())
             parents = list(map(int, in_file.readline().strip().split()))
     
