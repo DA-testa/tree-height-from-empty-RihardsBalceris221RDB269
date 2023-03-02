@@ -25,21 +25,21 @@ def compute_height(n, parents):
 
 
 def main():
+    def main():
     n = 0
-    in_method = input()
+    in_method = input().strip()
     if in_method == "I":
-        n = int(input())
-        parents = list(map(int, input().split()))
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
     elif in_method == "F":
-        file_name = input()
+        file_name = input().strip()
         if os.path.isfile(file_name):
             in_file = open(file_name, 'r')
-            n = int(in_file.readline())
-            parents = list(map(int, in_file.readline().split()))
+            n = int(in_file.readline().strip())
+            parents = list(map(int, in_file.readline().strip().split()))
     
     
     print(compute_height(n, parents))
-
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
